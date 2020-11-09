@@ -1,0 +1,12 @@
+spec:
+  containers:
+    - name: mytriggerimage
+      image: shikhajain0502/mytriggerimage
+      env:
+        - name: AzureFunctionsJobHost__functions__0
+          value: HttpTrigger
+      envFrom:
+        - secretRef:
+            name: mytriggerimage
+  tolerations:
+    - operator: Exists
